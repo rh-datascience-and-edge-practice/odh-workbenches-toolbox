@@ -2,9 +2,7 @@
 // README at: https://github.com/devcontainers-community/templates/tree/main/src/jupyter-datascience-notebooks
 {
 	"name": "Jupyter Data Science Notebooks",
-	"build": {
-		"dockerfile": "Dockerfile"
-	},
+	"image": "quay.io/opendatahub/workbench-images:cuda-jupyter-minimal-ubi9-python-3.9-2023a-20230807",
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	"features": {
 		"ghcr.io/devcontainers/features/common-utils:2": {
