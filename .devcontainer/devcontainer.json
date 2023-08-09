@@ -1,18 +1,12 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the
 // README at: https://github.com/devcontainers-community/templates/tree/main/src/jupyter-datascience-notebooks
 {
-	"name": "Jupyter Data Science Notebooks",
-	"image": "quay.io/opendatahub/workbench-images:cuda-jupyter-minimal-ubi9-python-3.9-2023a-20230807",
-	// Features to add to the dev container. More info: https://containers.dev/features.
-	"features": {
-		"ghcr.io/devcontainers/features/common-utils:2": {
-			"installZsh": "true",
-			"username": "jovyan",
-			"userUid": "1000",
-			"userGid": "1000",
-			"upgradePackages": "true"
-		}
+	 "name": "Jupyter Data Science Notebooks",
+	  "build": {
+	  	"dockerfile":"Dockerfile"
 	},
+	// "image": "quay.io/opendatahub/workbench-images:cuda-jupyter-minimal-ubi9-python-3.9-2023a-20230807",
+
 	// Use base images default CMD.
 	"overrideCommand": false,
 	// Forward Jupyter port locally, mark required.
@@ -35,7 +29,13 @@
 			// Add the IDs of extensions you want installed when the container is created.
 			"extensions": ["ms-python.python", "ms-toolsai.jupyter"]
 		}
-	}
+	},
+
+	// set up vscode to mount the folder that the notebook images expect to be mounted as home
+	// see https://youtu.be/4zX2XWTmr3c
+	// "workspaceMount": "source=${localWorkspaceFolder},target=/opt/app-root/src,type=bind",
+	"workspaceFolder": "/opt/app-root/src"
+
 	// Use 'postCreateCommand' to run commands after the container is created.
 	// "postCreateCommand": "pip3 install --user -r requirements.txt",
 
